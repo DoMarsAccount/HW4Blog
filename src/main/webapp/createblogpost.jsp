@@ -38,7 +38,7 @@
     <div id="header" align="center">
         <img src="logo.png" alt="longhorn" height=50px width=100px>
       <h1>
-        <a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
+        <a href="index.jsp" id="main-title">Donovan and Lauren's HW4 Blog</a>
       </h1>
     </div>  
 

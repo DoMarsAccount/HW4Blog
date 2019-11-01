@@ -25,14 +25,14 @@
 		<a name="top"></a>
 
 		<div id="header" align="center">
-				<img src="logo.png" alt="longhorn" height=50px width=100px>
+				<a href="index.jsp"><img src="logo.png" alt="longhorn" height=50px width=100px></a>
 			<h1>
-				<a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
+				<a href="index.jsp" id="main-title">Donovan and Lauren's HW4 Blog</a>
 			</h1>
 		</div>
 
-		<h2 align="center" class="post_title">
-			All Blog Posts ever
+		<h2 align="center" class="post-title">
+			All Blog Posts
 		</h2>
 
 		<%

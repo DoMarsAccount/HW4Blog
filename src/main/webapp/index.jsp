@@ -24,9 +24,9 @@
 
   	<body>
   		<div id="header" align="center">
-  			<img src="logo.png" alt="longhorn" height=50px width=100px>
+  			<a href="index.jsp"><img src="logo.png" alt="longhorn" height=50px width=100px></a>
 			<h1>
-				<a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
+				<a href="index.jsp" id="main-title">Donovan and Lauren's HW4 Blog</a>
 			</h1>
 	  	</div>
 	
@@ -34,7 +34,7 @@
 		
 			<div id="menuPane">
 			
-				<a href="allposts.jsp"><button class="button">See All Posts</button></a>
+				<a href="allposts.jsp"><button class="button">List All Posts</button></a>
 				<%
 				String guestbookName = request.getParameter("guestbookName");
 
@@ -56,7 +56,7 @@
 
 					pageContext.setAttribute("user", user);		
 
-				%>
+					%>
 					<a href="createblogpost.jsp"><button class="button">Create Blog Post</button></a>
 
 					<p>Signed in as: ${fn:escapeXml(user.nickname)}</p>
@@ -76,9 +76,9 @@
 
 			    } else {
 				// Otherwise...they should login
-				%>
+					%>
 					<p>To post, please <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">log in</a>.</p>
-				<%
+					<%
 			    }
 				%>
 				
@@ -88,67 +88,65 @@
 			
 				<h2 class="post_title">Recent posts</h2>
 				<hr>
-				<div class="scrollable_main_pane">
-					<%
-				   	ObjectifyService.register(BlogPost.class);
+				<%
+			   	ObjectifyService.register(BlogPost.class);
 
-					List<BlogPost> greetings = ObjectifyService.ofy().load().type(BlogPost.class).list();
+				List<BlogPost> greetings = ObjectifyService.ofy().load().type(BlogPost.class).list();
 
-					Collections.sort(greetings);
-					Collections.reverse(greetings);
+				Collections.sort(greetings);
+				Collections.reverse(greetings);
 
-				    if (greetings.isEmpty()) {
-				        %>
-				        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
-				        <%
-				    } else {
-				        if(greetings.size() > 0){
+			    if (greetings.isEmpty()) {
+			        %>
+			        <p>Guestbook '${fn:escapeXml(guestbookName)}' has no messages.</p>
+			        <%
+			    } else {
+			        if(greetings.size() > 0){
 
-					        for (int i = 0; i < 4 && i < greetings.size(); i++) {
+				        for (int i = 0; i < 4 && i < greetings.size(); i++) {
 
-				        		BlogPost blogpost = greetings.get(i);
+			        		BlogPost blogpost = greetings.get(i);
 
-					            pageContext.setAttribute("blogpost_title", blogpost.getTitle());
+				            pageContext.setAttribute("blogpost_title", blogpost.getTitle());
 
-					            pageContext.setAttribute("blogpost_date", blogpost.getDate());
+				            pageContext.setAttribute("blogpost_date", blogpost.getDate());
 
-				        		pageContext.setAttribute("blogpost_content", blogpost.getContent());
-				       	
-				        		if (blogpost.getTitle() == null || blogpost.getTitle().equals("")) {
+			        		pageContext.setAttribute("blogpost_content", blogpost.getContent());
+			       	
+			        		if (blogpost.getTitle() == null || blogpost.getTitle().equals("")) {
 
-				        		%>
-				        			<h5 class="post_title"><b>Untitled</b></h5>
-				        		<% 
-				        		} else {
-				        		%>
-				        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
-				        		<%
-				        		}
-				        		%>
-				        		<blockquote>${fn:escapeXml(blogpost_content)}</blockquote>
-				        		<%
-				        		// Post User
-					            if (blogpost.getUser() == null) {
+			        		%>
+			        			<h5 class="post_title"><b>Untitled</b></h5>
+			        		<% 
+			        		} else {
+			        		%>
+			        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
+			        		<%
+			        		}
+			        		%>
+			        		<blockquote>${fn:escapeXml(blogpost_content)}</blockquote>
+			        		<%
+			        		// Post User
+				            if (blogpost.getUser() == null) {
+			                %>
+				                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: Anonymous</i></p>
+			                <%
+				            } else {
+				                pageContext.setAttribute("blogpost_user", blogpost.getUser());
 				                %>
-					                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: Anonymous</i></p>
+				                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: ${fn:escapeXml(blogpost_user.nickname)}</i></p>
 				                <%
-					            } else {
-					                pageContext.setAttribute("blogpost_user", blogpost.getUser());
-					                %>
-					                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: ${fn:escapeXml(blogpost_user.nickname)}</i></p>
-					                <%
-					            }
-					            %>
-				        
-					            <br>
-					            <hr>
+				            }
+				            %>
+			        
+				            <br>
+				            <hr>
 
-				            <%
-					        }
+			            <%
 				        }
-				    }
-						%>
-				</div> <!-- End scrollable_main_pane -->
+			        }
+			    }
+				%>
 			</div> <!-- End of mainPane -->
 		</div>	<!-- End of grid-container -->
 	  <br>

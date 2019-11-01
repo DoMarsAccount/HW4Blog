@@ -3,10 +3,6 @@ html, body {
 	padding: 0;
 }
 
-/*body {
-	background-color: #ffffff;
-}*/
-
 h1 {
 	font-family: Arial, Helvetica, sans-serif!important;
 	text-align: center;
@@ -15,6 +11,10 @@ h1 {
 a {
 	text-decoration: none;
 	color: #b35c22;
+}
+
+p {
+	font-family: Arial, Helvetica, sans-serif!important;
 }
 
 #header {
@@ -26,42 +26,8 @@ a {
 	justify-content: center;
 }
 
-#main_title {
+#main-title {
 	color: White;
-}
-
-img {
-	padding-top: 10pt;
-	padding-right: 20pt;
-}
-
-p {
-	font-family: Arial, Helvetica, sans-serif!important;
-}
-
-.button {
-	font-family: Arial, Helvetica, sans-serif!important;
-	font-size: 22px;
-	text-decoration: bold;
-}
-
-.post_title {
-	font-size: 24px;
-	font-family: Arial, Helvetica, sans-serif!important;
-	color: #b35c22;
-}
-
-/* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas */
-.grid-container {
-	display: grid;
-	grid-template-areas:
-		'menu main main main main'
-		'menu main main main main'
-		'menu main main main main';
-	grid-gap: 10px;
-	padding: 10px;
-	padding-left: 125px;
-	padding-right: 125px;
 }
 
 #menuPane {
@@ -73,12 +39,27 @@ p {
 	padding: 10px
 }
 
-.scrollable_main_pane{
-	overflow-y: scroll;
-	height: 600px;
+.button {
+	font-family: Arial, Helvetica, sans-serif!important;
+	font-size: 22px;
 }
 
+.post-title {
+	font-size: 24px;
+	font-family: Arial, Helvetica, sans-serif!important;
+	color: #b35c22;
+}
 
-
-
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas */
+.grid-container {
+	display: grid;
+	grid-template-areas:
+		'menu main main main'
+		'menu main main main'
+		'menu main main main';
+	grid-gap: 10px;
+	padding: 10px;
+	padding-left: 125px;
+	padding-right: 125px;
+}
 

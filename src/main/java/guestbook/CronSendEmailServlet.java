@@ -67,28 +67,25 @@ private static final Logger _logger = Logger.getLogger(CronSendEmailServlet.clas
 	}
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//_logger.info("Starting Cron Job");
 		doGet(req, resp);
 	}
 	
 	
 	private void sendSimpleMail(String email, String emailText) {
-	    // [START simple_example]
 	    Properties props = new Properties();
 	    Session session = Session.getDefaultInstance(props, null);
 
 	    try {
 	    	_logger.info("Start simpleMail");
 	      Message msg = new MimeMessage(session);
-	      msg.setFrom(new InternetAddress("puya@puyabrianblog.appspotmail.com", "puya"));
+	      msg.setFrom(new InternetAddress("stupidthings.primary", "HW4 Email Bot"));
 	      msg.addRecipient(Message.RecipientType.TO, new InternetAddress(email, "subscriber"));
-	      msg.setSubject("You have subscribed to Puya and Brian's Radical Blog");
-	      msg.setText("Dear Subscriber, \nHere are the blog posts made in the last 24 hours:\n\n" + emailText);
+	      msg.setSubject("You signed up for a newsletter...");
+	      msg.setText("Here are the blog posts from the last 24 hours:\n\n" + emailText);
 	      Transport.send(msg);
 	    } catch (Exception e) {
 	      _logger.info("There was an error in simple mail");
 	    }
-	    // [END simple_example]
 	}
 	
 	static final long DAY = 24 * 60 * 60 * 1000;
