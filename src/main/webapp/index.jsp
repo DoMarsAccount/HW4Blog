@@ -21,7 +21,7 @@
 <html>
 
 	<head>
-  		<title>Donovan and Lauren's Blog</title>
+  		<title>HW4 Blog</title>
   	  	<link rel="stylesheet" href="style.css">
   	</head>
 
@@ -29,7 +29,7 @@
   		<div id="title_tab" align="center">
   			<img src="logo.png" alt="globe" height=42px width=42px align="center">
 			<h1>
-				<a href="index.jsp" id="main_title">Donovan and Lauren's Blog</a>
+				<a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
 			</h1>
 	  	</div>
 	
@@ -37,6 +37,8 @@
 		
 			<div id="item1">
 			<!-- SIDE MENU -->
+			
+			<a href="allposts.jsp"><button class="button">See All Posts</button></a>
 <%
 
 	String guestbookName = request.getParameter("guestbookName");
@@ -52,56 +54,50 @@
     UserService userService = UserServiceFactory.getUserService();
 
     User user = userService.getCurrentUser();
-
+    
+    
+	// User can post if they've logged in
     if (user != null) {
 
       pageContext.setAttribute("user", user);
 
 %>
-
   				<a href="createblogpost.jsp"><button class="button">Create Blog Post</button></a>
 
-				<p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-
-				<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
+				<p>Signed in as: ${fn:escapeXml(user.nickname)}</p>
+				
+				<form action="/subEmail" method="post">
+					      <div><input type="submit" name="Subscribe" value="Subscribe to our posts" class="button"/></div>
+					      <input type="hidden" name="subOrUnsub" value="sub"/>
+				 </form>
+				 <form action="/subEmail" method="post">
+					      <div><input type="submit" name="Unsubscribe" value="Unsubscribe from our posts" class="button"/></div>
+					      <input type="hidden" name="subOrUnsub" value="unsub"/>
+				 </form>
+				 
+				<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">Sign out</a>
 
 <%
 
     } else {
-
+	// Otherwise...they should login
 %>
-
-				<p>Hello!
-
-				<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-
-				to post your own content.</p>
+				<p>To post, please <a href="<%= userService.createLoginURL(request.getRequestURI()) %>">log in</a>.</p>
 
 <%
-
     }
 
 %>
-				
-				
-				<form action="/subEmail" method="post">
-	      <div><input type="submit" name="Subscribe" value="Subscribe" class="button"/></div>
-	      <input type="hidden" name="subOrUnsub" value="sub"/>
- </form>
- <form action="/subEmail" method="post">
-	      <div><input type="submit" name="Unsubscribe" value="Unsubscribe" class="button"/></div>
-	      <input type="hidden" name="subOrUnsub" value="unsub"/>
- </form>
-				
-			</div>
-			<div id="item2">
-			<!-- RECENT POSTS -->
-			
-			
-			<h2 class="post_title" style="text-decoration: underline">Recent posts</h2>
-			<hr>
-			<div class="scrollable_main">
-				<%
+		
+	</div>
+	<div id="item2">
+	<!-- RECENT POSTS -->
+	
+	
+	<h2 class="post_title" style="text-decoration: underline">Recent posts</h2>
+	<hr>
+	<div class="scrollable_main">
+		<%
 
     // Run an ancestor query to ensure we see the most up-to-date
 
@@ -128,34 +124,32 @@
 
         <p>BlogPosts in Page '${fn:escapeXml(guestbookName)}'.</p>
 
-
-
         <%
 
-        if(greetings.size()>0){
+        if(greetings.size() > 0){
 
-	        for (int i=0; i<4 && i<greetings.size(); i++) {
+	        for (int i = 0; i < 4 && i < greetings.size(); i++) {
 
-	        		BlogPost blogpost = greetings.get(i);
+        		BlogPost blogpost = greetings.get(i);
 
 	            pageContext.setAttribute("blogpost_title", blogpost.getTitle());
 
 	            pageContext.setAttribute("blogpost_date", blogpost.getDate());
 
-	        		pageContext.setAttribute("blogpost_content", blogpost.getContent());
-	        	%>
-	        		<%
-	        		if(blogpost.getTitle() == null || blogpost.getTitle().equals("")){
+        		pageContext.setAttribute("blogpost_content", blogpost.getContent());
+       	%>
+        		<%
+        		if(blogpost.getTitle() == null || blogpost.getTitle().equals("")){
 
-	        		%>
-	        			<h5 class="post_title"><b>Untitled</b></h5>
+        		%>
+        			<h5 class="post_title"><b>Untitled</b></h5>
 
-	        		<% }else{
-	        		%>
-	        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
+        		<% }else{
+        		%>
+        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
 
-	        		<%
-	        		}
+        		<%
+        		}
 
 
 	            if (blogpost.getUser() == null) {
@@ -196,25 +190,10 @@
 %>
 			</div>
 			</div>
-			
-			<div id="item3">
-			
-			<a href="allposts.jsp"><button class="button">See All Posts</button></a>
-			
-			<form action="allposts.jsp" method="post">
-	      <div><h4 class="button">Search For:</h4><textarea name="filteredSearchTerm" rows="1" cols="10"></textarea></div>
-	      <div><input type="submit" value="Search" class="button"/></div>
- </form>
-			
-			</div>
 		
 		</div>
 	  
 	  <br>
-
-
-
-
 
   </body>
 

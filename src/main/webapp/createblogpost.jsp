@@ -30,7 +30,7 @@
 
 
   <head>
-  	<title>Donovan and Lauren's Blog</title>
+  	<title>HW4 Blog</title>
   	<link rel="stylesheet" href="style.css">
   </head>
 
@@ -40,7 +40,7 @@
   	<div id="title_tab" align="center">
   		<img src="logo.png" alt="globe" height=42px width=42px align="center">
 		<h1>
-			<a href="index.jsp" id="main_title">Donovan and Lauren's Blog</a>
+			<a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
 		</h1>
 	</div>
 
