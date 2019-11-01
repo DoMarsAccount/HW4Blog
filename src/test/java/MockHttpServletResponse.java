@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  * Feel free to change this class or replace it using other ways for testing
  * {@link HttpServlet}s, e.g. Spring MVC Test or Mockito to suit your needs.
  */
-class MockHttpServletResponse implements HttpServletResponse {
+public class MockHttpServletResponse implements HttpServletResponse {
 
   private String contentType;
   private String encoding;
@@ -42,9 +42,9 @@ class MockHttpServletResponse implements HttpServletResponse {
   public StringWriter getWriterContent() {
     return writerContent;
   }
-
+  
   // anything below is the default generated implementation
-
+  
   @Override
   public void flushBuffer() throws IOException {
   }
@@ -83,7 +83,7 @@ class MockHttpServletResponse implements HttpServletResponse {
   }
 
   @Override
-  public void setBufferSize(int size) {
+  public void setBufferSize(int arg0) {
   }
 
   @Override
@@ -92,110 +92,102 @@ class MockHttpServletResponse implements HttpServletResponse {
   }
 
   @Override
-  public void setContentLength(int length) {
+  public void setContentLength(int arg0) {
   }
 
   @Override
-  public void setLocale(Locale locale) {
+  public void setLocale(Locale arg0) {
   }
 
   @Override
-  public void addCookie(Cookie cookie) {
+  public void addCookie(Cookie arg0) {
   }
 
   @Override
-  public void addDateHeader(String name, long date) {
+  public void addDateHeader(String arg0, long arg1) {
   }
 
   @Override
-  public void addHeader(String name, String value) {
+  public void addHeader(String arg0, String arg1) {
   }
 
   @Override
-  public void addIntHeader(String name, int value) {
+  public void addIntHeader(String arg0, int arg1) {
   }
 
   @Override
-  public boolean containsHeader(String name) {
+  public boolean containsHeader(String arg0) {
     return false;
   }
 
   @Override
-  public String encodeRedirectURL(String url) {
-    return null;
-  }
-
-  @Deprecated
-  @Override
-  public String encodeRedirectUrl(String url) {
+  public String encodeRedirectURL(String arg0) {
     return null;
   }
 
   @Override
-  public String encodeURL(String url) {
-    return null;
-  }
-
-  @Deprecated
-  @Override
-  public String encodeUrl(String url) {
+  public String encodeRedirectUrl(String arg0) {
     return null;
   }
 
   @Override
-  public void sendError(int statusCode) throws IOException {
+  public String encodeURL(String arg0) {
+    return null;
   }
 
   @Override
-  public void sendError(int statusCode, String message) throws IOException {
+  public String encodeUrl(String arg0) {
+    return null;
   }
 
   @Override
-  public void sendRedirect(String url) throws IOException {
+  public void sendError(int arg0) throws IOException {
   }
 
   @Override
-  public void setDateHeader(String name, long date) {
+  public void sendError(int arg0, String arg1) throws IOException {
   }
 
   @Override
-  public void setHeader(String name, String value) {
+  public void sendRedirect(String arg0) throws IOException {
   }
 
   @Override
-  public void setIntHeader(String name, int value) {
+  public void setDateHeader(String arg0, long arg1) {
   }
 
   @Override
-  public void setStatus(int statusCode) {
+  public void setHeader(String arg0, String arg1) {
   }
 
-  @Deprecated
   @Override
-  public void setStatus(int statusCode, String message) {
+  public void setIntHeader(String arg0, int arg1) {
   }
 
+  @Override
+  public void setStatus(int arg0) {
+  }
+
+  @Override
+  public void setStatus(int arg0, String arg1) {
+  }
+  
   // Servlet API 3.0 and 3.1 methods
-  @Override
-  public void setContentLengthLong(long length) {
+  public void setContentLengthLong(long length) {  
   }
 
-  @Override
   public int getStatus() {
     return 0;
   }
-
-  @Override
+  
   public String getHeader(String name) {
     return null;
   }
 
-  @Override
   public Collection<String> getHeaders(String name) {
     return null;
   }
-
-  @Override
+  
   public Collection<String> getHeaderNames() {
     return null;
   }
