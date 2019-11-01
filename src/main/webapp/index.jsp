@@ -26,8 +26,8 @@
   	</head>
 
   	<body>
-  		<div id="title_tab" align="center">
-  			<img src="logo.png" alt="globe" height=42px width=42px align="center">
+  		<div id="header" align="center">
+  			<img src="logo.png" alt="longhorn" height=50px width=100px>
 			<h1>
 				<a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
 			</h1>
@@ -35,10 +35,9 @@
 	
 		<div class="grid-container">
 		
-			<div id="item1">
-			<!-- SIDE MENU -->
-			
-			<a href="allposts.jsp"><button class="button">See All Posts</button></a>
+		<div id="menuPane">
+		
+		<a href="allposts.jsp"><button class="button">See All Posts</button></a>
 <%
 
 	String guestbookName = request.getParameter("guestbookName");
@@ -90,7 +89,7 @@
 %>
 		
 	</div>
-	<div id="item2">
+	<div id="mainPane">
 	<!-- RECENT POSTS -->
 	
 	

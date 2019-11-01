@@ -9,7 +9,6 @@ body {
 
 h1 {
 	font-family: Times;
-	//font-size: 105%;
 	text-align: center;
 }
 
@@ -18,11 +17,11 @@ a {
 }
 
 #main_title {
-	color: Black;
+	color: White;
 }
 
-#title_tab {
-	background-color: #ecf4ec;
+#header {
+	background-color: #b35c22;
 	padding-top: 2pt;
 	padding-bottom: 3pt;
 	text-align="center";
@@ -31,7 +30,7 @@ a {
 }
 
 img {
-	padding-top: 13pt;
+	padding-top: 10pt;
 	padding-right: 20pt;
 }
 
@@ -62,12 +61,14 @@ p {
 	padding-right: 125px;
 }
 
-#item1 {grid-area: menu;}
-#item2 {
+#menuPane {
+	grid-area: menu;
+}
+
+#mainPane {
 	grid-area: main;
 	padding: 10px
 }
-#item3 {grid-area: right;}
 
 .scrollable_main {
 	overflow-y: scroll;
