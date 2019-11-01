@@ -124,22 +124,22 @@
 				        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
 				        		<%
 				        		}
-
+				        		%>
+				        		<blockquote>${fn:escapeXml(blogpost_content)}</blockquote>
+				        		<%
 				        		// Post User
 					            if (blogpost.getUser() == null) {
 				                %>
-					                <p><i>By: Anonymous</i></p>
+					                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: Anonymous</i></p>
 				                <%
 					            } else {
 					                pageContext.setAttribute("blogpost_user", blogpost.getUser());
 					                %>
-					                <p><i>By: ${fn:escapeXml(blogpost_user.nickname)}</i></p>
+					                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: ${fn:escapeXml(blogpost_user.nickname)}</i></p>
 					                <%
 					            }
 					            %>
-					           	<p><i>Posted: ${fn:escapeXml(blogpost_date)}</i></p>
-
-					            <blockquote>${fn:escapeXml(blogpost_content)}</blockquote>
+				        
 					            <br>
 					            <hr>
 

@@ -28,26 +28,21 @@
 
 <html>
 
-
   <head>
   	<title>HW4 Blog</title>
   	<link rel="stylesheet" href="style.css">
   </head>
 
-
-
   <body align="center">
-  	<div id="title_tab" align="center">
-  		<img src="logo.png" alt="globe" height=42px width=42px align="center">
-		<h1>
-			<a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
-		</h1>
-	</div>
 
+    <div id="header" align="center">
+        <img src="logo.png" alt="longhorn" height=50px width=100px>
+      <h1>
+        <a href="index.jsp" id="main_title">Donovan and Lauren's HW4 Blog</a>
+      </h1>
+    </div>  
 
-
-<%
-
+    <%
     String guestbookName = request.getParameter("guestbookName");
 
     if (guestbookName == null) {
@@ -62,40 +57,16 @@
 
     User user = userService.getCurrentUser();
 
-    if (user != null) {
+  	if(user != null){
 
       pageContext.setAttribute("user", user);
-
-%>
-
-<p>Hello, ${fn:escapeXml(user.nickname)}! (You can
-
-<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>.)</p>
-
-<%
-
-    } else {
-
-%>
-
-<p>Hello!
-
-<a href="<%= userService.createLoginURL(request.getRequestURI()) %>">Sign in</a>
-
-to be able to post your own content.</p>
-
-<%
-
-    }
-
-%>
-<%
-	if(user != null){
-%>
+      %>
+      <p>Signed in as: ${fn:escapeXml(user.nickname)} (<a href="<%= userService.createLogoutURL(request.getRequestURI()) %>">sign out</a>)</p>
+      
 	    <form action="/ofyblog" method="post">
 
-		  <div><p>Title</p><textarea name="title" rows="1" cols="30"></textarea></div>
-	      <div><p>Content</p><textarea name="content" rows="6" cols="60"></textarea></div>
+		    <div><p>Post Title</p><textarea name="title" rows="1" cols="30"></textarea></div>
+	      <div><p>Post Body</p><textarea name="content" rows="6" cols="60"></textarea></div>
 
 	      <div><input type="submit" value="Post" class="button"/></div>
 
@@ -105,13 +76,9 @@ to be able to post your own content.</p>
 
 	    <a href="createblogpost.jsp"><button class="button">Clear</button></a>
 	    <a href="index.jsp"><button class="button">Cancel</button></a>
-
-	<%
-	}
-	%>
-
-
-
+  	 <%
+  	}
+  	%>
   </body>
 
 </html>
