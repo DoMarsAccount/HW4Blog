@@ -27,7 +27,7 @@
 
 
   	<head>
-		<title>Dylan and Jack's Foreign Forum</title>
+		<title>Donovan and Lauren's Blog</title>
   		<link rel="stylesheet" href="style.css">
   	</head>
 
@@ -38,7 +38,7 @@
   		<div id="title_tab" align="center">
   			<img src="logo.png" alt="globe" height=42px width=42px align="center">
 			<h1>
-				<a href="index.jsp" id="main_title">Dylan and Jack's Foreign Forum</a>
+				<a href="index.jsp" id="main_title">Donovan and Lauren's Blog</a>
 			</h1>
 	  	</div>
 
