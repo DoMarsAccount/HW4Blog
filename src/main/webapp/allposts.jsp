@@ -25,7 +25,7 @@
 		<a name="top"></a>
 
 		<div id="header" align="center">
-				<a href="index.jsp"><img src="logo.png" alt="longhorn" height=50px width=100px></a>
+				<a href="index.jsp"><img src="longhorn.png" alt="longhorn" height=50px width=100px></a>
 			<h1>
 				<a href="index.jsp" id="main-title">Donovan and Lauren's HW4 Blog</a>
 			</h1>
@@ -87,7 +87,7 @@
 
         		} else {
         			%>
-        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
+        			<h5 class="post-title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
         			<%
         		}
 				%>
@@ -96,14 +96,14 @@
         		if (blogpost.getUser() == null) {
 
                     %>
-                    <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: Anonymous</i></p>
+                    <p><i>Posted on ${fn:escapeXml(blogpost_date)} by Anonymous</i></p>
                     <%
 
                 } else {
 
                     pageContext.setAttribute("blogpost_user", blogpost.getUser());
                     %>
-                    <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: ${fn:escapeXml(blogpost_user.nickname)}</i></p>
+                    <p><i>Posted on ${fn:escapeXml(blogpost_date)} by ${fn:escapeXml(blogpost_user.nickname)}</i></p>
                     <%
                 }
 
@@ -116,7 +116,7 @@
 	        }
     	}
 		%>
-		<a href="#top" class="post_title">Back to top</a>
+		<a href="#top" class="post-title">Back to top</a>
 		<hr>
 		<p></p>
 		

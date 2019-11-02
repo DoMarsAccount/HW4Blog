@@ -24,7 +24,7 @@
 
   	<body>
   		<div id="header" align="center">
-  			<a href="index.jsp"><img src="logo.png" alt="longhorn" height=50px width=100px></a>
+  			<a href="index.jsp"><img src="longhorn_logo.png" alt="longhorn" height=50px width=100px></a>
 			<h1>
 				<a href="index.jsp" id="main-title">Donovan and Lauren's HW4 Blog</a>
 			</h1>
@@ -62,11 +62,11 @@
 					<p>Signed in as: ${fn:escapeXml(user.nickname)}</p>
 					
 					<form action="/subEmail" method="post">
-						      <div><input type="submit" name="Subscribe" value="Subscribe to our posts" class="button"/></div>
+						      <div><input type="submit" name="Subscribe" value="Subscribe to these posts" class="button"/></div>
 						      <input type="hidden" name="subOrUnsub" value="sub"/>
 					 </form>
 					 <form action="/subEmail" method="post">
-						      <div><input type="submit" name="Unsubscribe" value="Unsubscribe from our posts" class="button"/></div>
+						      <div><input type="submit" name="Unsubscribe" value="Unsubscribe from these posts" class="button"/></div>
 						      <input type="hidden" name="subOrUnsub" value="unsub"/>
 					 </form>
 					 
@@ -86,7 +86,7 @@
 
 			<div id="mainPane">
 			
-				<h2 class="post_title">Recent posts</h2>
+				<h2 class="post-title">Blog posts</h2>
 				<hr>
 				<%
 			   	ObjectifyService.register(BlogPost.class);
@@ -116,11 +116,11 @@
 			        		if (blogpost.getTitle() == null || blogpost.getTitle().equals("")) {
 
 			        		%>
-			        			<h5 class="post_title"><b>Untitled</b></h5>
+			        			<h5 class="post-title"><b>Untitled</b></h5>
 			        		<% 
 			        		} else {
 			        		%>
-			        			<h5 class="post_title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
+			        			<h5 class="post-title"><b>${fn:escapeXml(blogpost_title)}</b></h5>
 			        		<%
 			        		}
 			        		%>
@@ -129,12 +129,12 @@
 			        		// Post User
 				            if (blogpost.getUser() == null) {
 			                %>
-				                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: Anonymous</i></p>
+				                <p><i>Posted on ${fn:escapeXml(blogpost_date)} by Anonymous</i></p>
 			                <%
 				            } else {
 				                pageContext.setAttribute("blogpost_user", blogpost.getUser());
 				                %>
-				                <p><i>Posted: ${fn:escapeXml(blogpost_date)} by: ${fn:escapeXml(blogpost_user.nickname)}</i></p>
+				                <p><i>Posted on ${fn:escapeXml(blogpost_date)} by ${fn:escapeXml(blogpost_user.nickname)}</i></p>
 				                <%
 				            }
 				            %>
