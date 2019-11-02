@@ -18,7 +18,7 @@
 
   	<head>
 		<title>Donovan and Lauren's Blog</title>
-  		<link rel="stylesheet" href="style.css">
+  		<link rel="stylesheet" href="stylesheet.css">
   	</head>
 
   	<body align="center">

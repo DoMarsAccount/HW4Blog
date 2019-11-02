@@ -19,7 +19,7 @@
 
 	<head>
   		<title>HW4 Blog</title>
-  	  	<link rel="stylesheet" href="style.css">
+  	  	<link rel="stylesheet" href="stylesheet.css">
   	</head>
 
   	<body>
